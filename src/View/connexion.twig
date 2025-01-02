@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../public/css/styles.css" />
+
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-2 p-0" id="sidebar-wrapper">
+                {% include 'navbar.twig' %}
+            </div>
+
+
+            <div class="col-md-10 ml-auto" id="content">
+                <div class="container-fluid">
+
+                    <form method="POST" action="http://localhost//isi1_projetfinal/src/Controller/connexion.php">
+                        <h2>Login</h2>
+
+
+                        <label for="login">Identifiant (Login)</label><br>
+                        <input type="text" id="login" name="login" required><br><br>
+
+                        <label for="password">Mot de passe</label><br>
+                        <input type="password" id="password" name="password" required><br><br>
+
+                        <label for="role">Vous êtes :</label><br>
+                        <select id="role" name="role" required>
+                            <option value="etudiant">Étudiant</option>
+                            <option value="professeur">Professeur</option>
+                        </select><br><br>
+
+                        <button type="submit">Se connecter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

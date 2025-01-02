@@ -1,0 +1,93 @@
+* {
+    font-family: 'Courier New';
+}
+
+
+.navBar {
+    height: 100vh;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding-top: 1rem;
+    width: 250px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+}
+
+.navBar.collapsed {
+    width: 80px;
+    /* Sidebar partially visible (only icons) */
+}
+
+.navBar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease, padding 0.3s ease;
+}
+
+.navBar.collapsed a {
+    justify-content: center;
+    padding: 0.75rem;
+    /* Center icons when collapsed */
+}
+
+.navBar a:hover,
+.navBar .active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.navBar img {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+    transition: margin-right 0.3s ease;
+}
+
+.navBar.collapsed img {
+    margin-right: 0;
+    /* Hide spacing when collapsed */
+}
+
+.collapse-btn {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+}
+
+.collapse-btn.active {
+    background-color: #007bff;
+    /* Highlight the active button */
+}
+
+/* Ensure buttons are stacked vertically */
+.collapse-btns {
+    margin-top: auto;
+    /* Push the buttons to the bottom */
+}
+
+.collapse-btns a {
+    display: block;
+    /* Make each button block-level to stack them vertically */
+    padding: 0.75rem 1rem;
+}
+
+.navBar.collapsed .text {
+    display: none;
+    /* Hide the text when the sidebar is collapsed */
+}
+
+
+.Acc-text {
+    color: darkblue;
+    text-align: center;
+}
+
+.Aide-text{
+    color: darkblue;
+    text-align: end;
+}
