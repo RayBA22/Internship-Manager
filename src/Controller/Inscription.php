@@ -10,6 +10,9 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
     exit;
 } else {
 
+
+
+
     echo $twig->render('Inscription.twig');
     exit;
 }

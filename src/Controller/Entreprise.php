@@ -11,8 +11,13 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
     exit;
 } else {
 
+    if (isset($_GET['mot']))
+        $partie_nom = $_GET['mot'];
+    
+    else
+        $partie_nom = "";
 
-    $information = info_entreprise();
+    $information = info_entreprise($partie_nom);
     $entetes = $entetes = array(
         "Opération",
         "Raison sociale",

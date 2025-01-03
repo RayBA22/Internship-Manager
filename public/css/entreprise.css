@@ -49,7 +49,9 @@ a.btn img {
     background-color: blue; /* Darker blue on hover */
 }
 
-.company-action img {
+.company-action img {   
+    
+    
     max-width: 20px;       /* Smaller logo size */
     margin-right: 8px;     /* Space between logo and text */
 }
@@ -59,6 +61,7 @@ a.btn img {
     font-weight: bold;     /* Bold text */
     white-space: nowrap;   /* Prevent text from wrapping */
 }
+
 
 
 .titre1 {
@@ -93,3 +96,87 @@ a.btn img {
     font-size: 14px;
   }
   
+
+
+
+
+
+  .form-container {
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form-section {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.form-section h3 {
+    margin: 0 0 15px 0;
+    background-color: #0056A2;
+    color: white;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.form-section .form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-row label {
+    width: 25%;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.form-row input, .form-row select, .form-row textarea {
+    width: 70%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    background-color: #0056A2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+input[type="submit"]:hover {
+    background-color: #003f7f;
+}
+
+.note {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 3px;
+}
+
+.form-section + .form-section {
+    margin-top: 20px;
+}
+
+
+
+.theStar{
+
+    color: red;
+}

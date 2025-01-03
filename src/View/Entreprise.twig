@@ -25,11 +25,17 @@
                 <div class="container-fluid">
                     <br>
                     <div class="button-container">
-                        <a href="path/to/view" class="company-action">
-                            <img src="../../public/icons/rechercher.png" alt="Rechercher" />
-                            <p>Rechercher une entreprise</p>
-                        </a>
-                        <a href="path/to/view" class="company-action">
+                        <div class="company-action">
+                            <form action="" method="GET" class="form-inline">
+                                <button type="submit" class="company-search-button">
+                                    <img src="../../public/icons/rechercher.png"   class="rechercher" />
+                                </button>
+                                <input type="text" name="mot" class="company-search-input" placeholder="Rechercher une entreprise" />
+                            </form>
+                        </div>
+                        
+                        
+                        <a href="../Controller/EntrepriseEdit.php" class="company-action">
                             <img src="../../public/icons/ajouter.png" alt="Ajouter" />
                             <p>Ajouter une entreprise</p>
                         </a>
@@ -67,14 +73,14 @@
                                         <a href="../Controller/EntrepriseInfo.php?id={{ info.num_entreprise }}" class="btn">
                                             <img src="../../public/icons/voir.png" />
                                         </a>
-                                        <a href="EntrepriseEdit.twig" class="btn">
+                                        <a href="../Controller/Inscription.php?id={{ info.num_entreprise }}" class="btn">
                                             <img src="../../public/icons/inscrire.png" />
                                         </a>
                                         {% if role == 1 %}
-                                        <a href="../View/EntrepriseEdit.twig" class="btn">
+                                        <a href="../Controller/EntrepriseEdit.php?id={{ info.num_entreprise }}" class="btn">
                                             <img src="../../public/icons/modifier.png" />
                                         </a>
-                                        <a href="path/to/supprimer" class="btn">
+                                        <a href="../Controller/supprimer.php?id={{ info.num_entreprise }}" class="btn">
                                             <img src="../../public/icons/supprimer.png" />
                                         </a>
                                         {% endif %}

@@ -1,178 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 20px;
-        }
+    <link rel="stylesheet" href="../../public/css/entreprise.css">
 
-        .form-container {
-            width: 100%;
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .form-section {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-
-        .form-section h3 {
-            margin: 0 0 15px 0;
-            background-color: #0056A2;
-            color: white;
-            padding: 10px;
-            border-radius: 3px;
-        }
-
-        .form-section .form-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            background-color: white;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-row label {
-            width: 25%;
-            font-weight: bold;
-            padding-right: 10px;
-        }
-
-        .form-row input, .form-row select, .form-row textarea {
-            width: 70%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
-        input[type="submit"] {
-            background-color: #0056A2;
-            color: white;
-            border: none;
-            cursor: pointer;
-            padding: 10px 15px;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #003f7f;
-        }
-
-        .note {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 3px;
-        }
-
-        .form-section + .form-section {
-            margin-top: 20px;
-        }
-    </style>
+    <title>Document</title>
 </head>
+
 <body>
 
-<div class="form-container">
-    <form>
-        <div class="form-section">
-            <h3>Information</h3>
-            <div class="form-row">
-                <label for="enterprise-name">Nom de l'entreprise *</label>
-                <input type="text" id="enterprise-name" required>
-            </div>
-            <div class="form-row">
-                <label for="contact-name">Nom du contact</label>
-                <input type="text" id="contact-name">
-            </div>
-            <div class="form-row">
-                <label for="manager-name">Nom du responsable</label>
-                <input type="text" id="manager-name">
-            </div>
-        </div>
 
-        <div class="form-section">
-            <h3>Contact</h3>
-            <div class="form-row">
-                <label for="street">Rue *</label>
-                <input type="text" id="street" required>
-            </div>
-            <div class="form-row">
-                <label for="postal-code">Code postal *</label>
-                <input type="text" id="postal-code" required>
-            </div>
-            <div class="form-row">
-                <label for="city">Ville *</label>
-                <input type="text" id="city" required>
-            </div>
-            <div class="form-row">
-                <label for="phone">Téléphone *</label>
-                <input type="tel" id="phone" required>
-            </div>
-            <div class="form-row">
-                <label for="fax">Fax</label>
-                <input type="text" id="fax">
-            </div>
-            <div class="form-row">
-                <label for="email">Email</label>
-                <input type="email" id="email">
-            </div>
-        </div>
+    <div class="container-fluid">
+        <div class="row">
 
-        <div class="form-section">
-            <h3>Divers</h3>
-            <div class="form-row">
-                <label for="observations">Observation</label>
-                <textarea id="observations" rows="3"></textarea>
+            <div class="col-md-2 p-0" id="sidebar-wrapper">
+                {% include 'navbar.twig' %}
             </div>
-            <div class="form-row">
-                <label for="website">Url du site</label>
-                <input type="url" id="website">
-            </div>
-            <div class="form-row">
-                <label for="level">Niveau *</label>
-                <input type="text" id="level" required>
-            </div>
-        </div>
 
-        <div class="form-section">
-            <h3>Spécialité</h3>
-            <div class="form-row">
-                <label for="specialty">Spécialité</label>
-                <select id="specialty">
-                    <option value="SLAM">SLAM</option>
-                    <option value="SISR">SISR</option>
-                    <option value="AM">AM</option>
-                    <option value="SN">SN</option>
-                    <option value="SA">SA</option>
-                </select>
+
+            <div class="col-md-10 ml-auto" id="content">
+                <div class="container-fluid">
+
+                    <div class="form-container">
+                        <form action="{% if info.num_entreprise is not null %}../Controller/Edit.php?id={{ info.num_entreprise }}{% else %}../Controller/Ajout.php{% endif %}" method="post">
+                            <div class="form-section">
+                                <h3>Information</h3>
+                                <div class="form-row">
+                                    <label for="enterprise-name">Nom de l'entreprise<span class="theStar">*</span> :
+                                    </label>
+                                    <input type="text" name="raison_sociale" value="{{ info.raison_sociale }}" required>
+                                </div>
+                                <div class="form-row">
+                                    <label for="contact-name">Nom du contact : </label>
+                                    <input type="text" name="nom_contact" value="{{ info.nom_contact }}">
+                                </div>
+                                <div class="form-row">
+                                    <label for="manager-name">Nom du responsable : </label>
+                                    <input type="text" name="nom_resp" value="{{ info.nom_resp }}">
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Contact</h3>
+                                <div class="form-row">
+                                    <label for="street">Rue<span class="theStar">*</span> : </label>
+                                    <input type="text" name="rue_entreprise" value="{{ info.rue_entreprise }}" required>
+                                </div>
+                                <div class="form-row">
+                                    <label for="postal-code">Code postal<span class="theStar">*</span> : </label>
+                                    <input type="text" name="cp_entreprise" value="{{ info.cp_entreprise }}" required>
+                                </div>
+                                <div class="form-row">
+                                    <label for="city">Ville<span class="theStar">*</span> :</label>
+                                    <input type="text" name="ville_entreprise" value="{{ info.ville_entreprise }}"
+                                        required>
+                                </div>
+                                <div class="form-row">
+                                    <label for="phone">Téléphone<span class="theStar">*</span> :</label>
+                                    <input type="tel" name="tel_entreprise" value="{{ info.tel_entreprise }}" required>
+                                </div>
+                                <div class="form-row">
+                                    <label for="fax">Fax : </label>
+                                    <input type="text" name="fax_entreprise" value="{{ info.fax_entreprise }}">
+                                </div>
+                                <div class="form-row">
+                                    <label for="email">Email : </label>
+                                    <input type="email" name="email" value="{{ info.email }}">
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Divers</h3>
+                                <div class="form-row">
+                                    <label for="observations">Observation : </label>
+                                    <textarea name="observation" rows="3"></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <label for="website">Url du site : </label>
+                                    <input type="url" name="site" value="{{ info.site_entreprise }}">
+                                </div>
+                                <div class="form-row">
+                                    <label for="level">Niveau<span class="theStar">*</span> : </label>
+                                    <input type="text" name="niveau" value="{{ info.niveau }}" required>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Spécialité : </h3>
+                                <div class="form-row">
+                                    <label for="specialty">Spécialité</label>
+                                    <select name="specialite">
+                                        <option value="SLAM" {% if info.libelle=='SLAM' %}selected{% endif %}>SLAM
+                                        </option>
+                                        <option value="SISR" {% if info.libelle=='SISR' %}selected{% endif %}>SISR
+                                        </option>
+                                        <option value="AM" {% if info.libelle=='AM' %}selected{% endif %}>AM</option>
+                                        <option value="SN" {% if info.libelle=='SN' %}selected{% endif %}>SN</option>
+                                        <option value="SA" {% if info.libelle=='SA' %}selected{% endif %}>SA</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="note">
+                                Les champs comportant le symbole<span class="theStar">*</span> sont obligatoires
+                            </div>
+
+                            <div style="text-align: right;">
+                                <input type="submit" value="Modifier">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="note">
-            Les champs comportant le symbole * sont obligatoires
-        </div>
-
-        <div style="text-align: right;">
-            <input type="submit" value="Modifier">
-        </div>
-    </form>
-</div>
 
 </body>
+
 </html>
