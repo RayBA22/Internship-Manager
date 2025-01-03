@@ -4,32 +4,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/css/entreprise.css">
 
 
     <title>Document</title>
 </head>
 
-<body> 
+<body>
 
-    
-<div class="container-fluid">
-    <div class="row">
-       
-        <div class="col-md-2 p-0" id="sidebar-wrapper">
-            {% include 'navbar.twig' %}
-        </div>
 
-        
-        <div class="col-md-10 ml-auto" id="content">
-            <div class="container-fluid">
-                <h1>Welcome to the Accueill page</h1>
-                <p>Here is the content of the Accueill page!</p>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-2 p-0" id="sidebar-wrapper">
+                {% include 'navbar.twig' %}
+            </div>
+
+
+            <div class="col-md-10 ml-auto" id="content">
+                <div class="container-fluid">
+                    <br>
+                    <div class="button-container">
+                        <a href="path/to/view" class="company-action">
+                            <img src="../../public/icons/rechercher.png" alt="Rechercher" />
+                            <p>Rechercher une entreprise</p>
+                        </a>
+                        <a href="path/to/view" class="company-action">
+                            <img src="../../public/icons/ajouter.png" alt="Ajouter" />
+                            <p>Ajouter une entreprise</p>
+                        </a>
+
+
+                        <br> 
+                    </div>
+                    <hr>
+                    <br>
+
+
+
+
+                    <div class="controls">
+                        <select id="columnSelector">
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                        <button onclick="addColumn()">Ajouter</button>
+                    </div>
+
+                    <table id="dataTable">
+                        <thead>
+                            <tr>
+
+                                {% for entete in entetes %}
+                                <th>{{ entete }} <button onclick="toggleColumn({{ loop.index0 }})">−</button></th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for info in information %}
+                            <tr>
+                                <td>
+                                    <div>
+                                        <a href="../Controller/EntrepriseInfo.php?id={{ info.num_entreprise }}" class="btn">
+                                            <img src="../../public/icons/voir.png" />
+                                        </a>
+                                        <a href="path/to/inscrire" class="btn">
+                                            <img src="../../public/icons/inscrire.png" />
+                                        </a>
+                                        {% if role == 1 %}
+                                        <a href="path/to/modifier" class="btn">
+                                            <img src="../../public/icons/modifier.png" />
+                                        </a>
+                                        <a href="path/to/supprimer" class="btn">
+                                            <img src="../../public/icons/supprimer.png" />
+                                        </a>
+                                        {% endif %}
+
+
+                                    </div>
+                                </td>
+                                <td> {{ info.raison_sociale }} </td>
+                                <td>{{ info.nom_contact }}</td>
+                                <td>{{ info.cp_entreprise }} {{ info.ville_entreprise }} <br> {{ info.rue_entreprise }}
+                                </td>
+                                <td>{{ info.libelle }}</td>
+                                <td> <a href="{{ info.site_entreprise }}" class="btn">
+                                        <img src="../../public/icons/lien.png" />
+                                    </a></td>
+                                <td>{{ info.email }}</td>
+                                <td>Tel: {{ info.tel_entreprise}} <br>Fax: {{ info.fax_entreprise}}</td>
+                                <td>{{ info.niveau }}</td>
+                                <td>{% if info.en_activite == 1 %}
+                                    OUI
+                                    {% else %}
+                                    NON
+                                    {% endif %}
+
+                                </td>
+
+
+
+                            </tr>
+                            {% endfor %}
+                            <!-- More rows can be added here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
 
 
 </body>
+<script src="../../public/js/entreprise.js"></script>
 
 </html>

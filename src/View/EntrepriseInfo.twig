@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/css/entreprise.css">
+
+
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-2 p-0" id="sidebar-wrapper">
+                {% include 'navbar.twig' %}
+            </div>
+
+
+            <div class="col-md-10 ml-auto" id="content">
+                <div class="container-fluid">
+
+
+                    <h1 class="titre1">ARS - Agence Régionale de la santé</h1>
+                    <hr>
+
+                    <h3>Entrée</h3>
+
+                    <div class="container">
+                        <div class="bubble">
+                          <h4>Information</h4>
+                          <p>Nom de l'entreprise : {{ info.raison_sociale }}<br>
+                              Nom du contact : {{ info.nom_contact }} <br>
+                              Nom du responsable : {{ info.nom_resp }}<br>
+                          </p>
+                        </div>
+                        <div class="bubble">
+                          <h4>Divers</h4>
+                          <p>Observation : <br>
+                              Url du site : {{ info.site_entreprise }} <br>
+                              Niveau : {{ info.niveau }} <br>
+                              Spécialité : {{ info.libelle }}<br>
+                          </p>
+                        </div>
+                        <div class="bubble">
+                          <h4>Contact</h4>
+                          <p>Rue : {{ info.rue_entreprise }}<br>
+                              Code postal : {{ info.cp_entreprise }}<br>
+                              Ville: {{ info.ville_entreprise }}<br>
+                              Téléphone : {{ info.tel_entreprise }}<br>
+                              Fax : {{ info.fax_entreprise }}<br>
+                              Email : {{ info.email }}<br>
+                          </p>
+                        </div>
+                      </div>
+                      
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

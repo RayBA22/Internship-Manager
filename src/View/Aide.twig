@@ -24,11 +24,21 @@
                 <div class="container-fluid">
                     <div></div>
                     <div class="Aide-text">
-                        <h1>Aide</h1>
+                            <h1>Aide</h1>
                         <p>Bienvenue sur la FAQ</p>
                         <hr>
                         
                         
+
+
+
+
+
+
+
+                        {% for a in aide %}
+                        <li>{{ a }}</li>
+                        {% endfor %}
 
 
                     </div>

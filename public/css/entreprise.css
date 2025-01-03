@@ -1,0 +1,94 @@
+#dataTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#dataTable th, #dataTable td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+a.btn {
+    display: inline-block;
+    padding: 3px;  /* Reduced padding */
+    background-color: blue;  
+    width: 25px;   /* Smaller width */
+    height: 25px;  /* Smaller height */
+    text-align: center;
+    margin-right: 8px;  /* Slightly reduced margin */
+    border-radius: 5px;  /* Optional: Rounded corners */
+}
+
+a.btn img {
+    width: 18px;  /* Smaller image size */
+    height: 18px; /* Smaller image size */
+    display: block;
+    margin: 0 auto;
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;             /* Space between buttons */
+    align-items: center;   /* Vertically align buttons */
+}
+
+.company-action {
+    display: flex;
+    align-items: center;   /* Align logo and text vertically */
+    text-decoration: none; /* Remove underline */
+    background-color: blue; /* Blue background */
+    color: white;          /* White text */
+    padding: 5px 10px;     /* Smaller padding */
+    border-radius: 5px;    /* Slightly rounded corners */
+    transition: background-color 0.2s;
+    font-size: 14px;       /* Smaller font size */
+}
+
+.company-action:hover {
+    background-color: blue; /* Darker blue on hover */
+}
+
+.company-action img {
+    max-width: 20px;       /* Smaller logo size */
+    margin-right: 8px;     /* Space between logo and text */
+}
+
+.company-action p {
+    margin: 0;             /* Remove default margin */
+    font-weight: bold;     /* Bold text */
+    white-space: nowrap;   /* Prevent text from wrapping */
+}
+
+
+.titre1 {
+    text-align: center;
+}
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    
+  }
+  
+  .bubble {
+    background-color: #ccccff;
+    border: 1px solid #ccccff;
+    padding: 15px;
+    border-radius: 10px;
+    width: auto;
+    max-width: 300px;
+  }
+  
+  .bubble h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .bubble p {
+    margin: 10px 0 0 0;
+    font-size: 14px;
+  }
+  

@@ -1,35 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <title>Document</title>
+    <title>Dynamic Table with Hide Columns</title>
+    <link rel="stylesheet" href="../../public/css/styles.css">
 </head>
-
-<body> 
-
-    
-<div class="container-fluid">
-    <div class="row">
-       
-        <div class="col-md-2 p-0" id="sidebar-wrapper">
-            {% include 'navbar.twig' %}
-        </div>
-
-        
-        <div class="col-md-10 ml-auto" id="content">
-            <div class="container-fluid">
-                <h1>Welcome to the Accueill page</h1>
-                <p>Here is the content of the Accueill page!</p>
-            </div>
-        </div>
+<body>
+    <div class="controls">
+        <label for="columnSelector">Select Column to Add:</label>
+        <select id="columnSelector">
+            <!-- Options will be populated dynamically -->
+        </select>
+        <button onclick="addColumn()">Ajouter</button>
     </div>
-</div>
+    
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Column 1 <button onclick="toggleColumn(0)">−</button></th>
+                <th>Column 2 <button onclick="toggleColumn(1)">−</button></th>
+                <th>Column 3 <button onclick="toggleColumn(2)">−</button></th>
+                <th>Column 4 <button onclick="toggleColumn(3)">−</button></th>
+                <th>Column 5 <button onclick="toggleColumn(4)">−</button></th>
+                <th>Column 6 <button onclick="toggleColumn(5)">−</button></th>
+                <th>Column 7 <button onclick="toggleColumn(6)">−</button></th>
+                <th>Column 8 <button onclick="toggleColumn(7)">−</button></th>
+                <th>Column 9 <button onclick="toggleColumn(8)">−</button></th>
+                <th>Column 10 <button onclick="toggleColumn(9)">−</button></th>
+                <th>Column 11 <button onclick="toggleColumn(10)">−</button></th>
+                <th>Column 12 <button onclick="toggleColumn(11)">−</button></th>
+                <th>Column 13 <button onclick="toggleColumn(12)">−</button></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Data 1-1</td>
+                <td>Data 1-2</td>
+                <td>Data 1-3</td>
+                <td>Data 1-4</td>
+                <td>Data 1-5</td>
+                <td>Data 1-6</td>
+                <td>Data 1-7</td>
+                <td>Data 1-8</td>
+                <td>Data 1-9</td>
+                <td>Data 1-10</td>
+                <td>Data 1-11</td>
+                <td>Data 1-12</td>
+                <td>Data 1-13</td>
+            </tr>
+            <!-- More rows can be added here -->
+        </tbody>
+    </table>
 
-
+    <script src="../../public/js/entreprise.js"></script>
 </body>
-
 </html>

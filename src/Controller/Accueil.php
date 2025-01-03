@@ -10,6 +10,7 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
     exit;
 } else {
 
-    echo $twig->render('Accueil.twig');
+    $active = ["active", "", "", "", ""];
+    echo $twig->render('Accueil.twig', ['active'=> $active]);
     exit;
 }

@@ -11,20 +11,20 @@
 <body>
     <div class="d-flex">
         <div class="navBar" id="navBar">
-            <a href="../Controller/Accueil.php" class="active">
+            <a href="../Controller/Accueil.php" class="{{ active[0] }}">
                 <img src="../../public/icons/home.png" > <span class="text">Accueil</span>
             </a>
-            <a href="../Controller/Entreprise.php">
+            <a href="../Controller/Entreprise.php" class="{{ active[1] }}">
                 <img src="../../public/icons/entreprise.png" > <span class="text">Entreprise</span>
             </a>
-            <a href="../Controller/Stagiaire.php">
+            <a href="../Controller/Stagiaire.php" class="{{ active[2] }}">
                 <img src="../../public/icons/stage.png" > <span class="text">Stagiaire</span>
             </a>
-            <a href="../Controller/Inscription.php">
+            <a href="../Controller/Inscription.php" class="{{ active[3] }}">
                 <img src="../../public/icons/inscrire.png" > <span class="text">Inscription</span>
             </a>
             <a href="../Controller/Aide.php">
-                <img src="../../public/icons/aide.png" > <span class="text">Aide</span>
+                <img src="../../public/icons/aide.png" class="{{ active[4] }}" > <span class="text">Aide</span>
             </a>
             <a href="../Controller/Deconnexion.php">
                 <img src="../../public/icons/deconnexion.png" > <span class="text">Déconnexion</span>
