@@ -43,9 +43,9 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
 
 
        
+        
 
-
-        ajouter_entreprise(
+         ajouter_entreprise(
             $raison_sociale,
             $nom_contact,
             $nom_resp,
@@ -61,6 +61,7 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
            
             
         );
+        
         
         header("Location: http://localhost//isi1_projetfinal/src/Controller/Entreprise.php");
         exit;

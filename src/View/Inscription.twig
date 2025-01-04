@@ -4,30 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="../../public/css/entreprise.css">
 
     <title>Document</title>
 </head>
 
-<body> 
+<body>
 
-    
-<div class="container-fluid">
-    <div class="row">
-       
-        <div class="col-md-2 p-0" id="sidebar-wrapper">
-            {% include 'navbar.twig' %}
-        </div>
 
-        
-        <div class="col-md-10 ml-auto" id="content">
-            <div class="container-fluid">
-                <h1>Welcome to the Accueill page</h1>
-                <p>Here is the content of the Accueill page!</p>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-2 p-0" id="sidebar-wrapper">
+                {% include 'navbar.twig' %}
+            </div>
+
+
+            <div class="col-md-10 ml-auto" id="content">
+                <div class="container-fluid">
+
+                    <div class="form-container">
+                        <form action="../Controller/information.php" method="post">
+                            <div class="form-section">
+                                <h3>Information</h3>
+
+                                <div class="form-row">
+                                    <label>Nom<span class="theStar">*</span> : </label>
+                                    <input type="text" name="nom_etudiant" value="{{ info.nom_etudiant }}" required>
+                                </div>
+                                <div class="form-row">
+                                    <label>Prenom<span class="theStar">*</span> : </label>
+                                    <input type="text" name="prenom_etudiant" value="{{ info.prenom_etudiant }}"
+                                        required>
+                                </div>
+                                {% if info.num_etudiant is null %}
+                                <div class="form-row">
+                                    <label>Nom d'utilisateur (8 caractères)<span class="theStar">*</span> : </label>
+                                    <input type="text" name="login" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label>Mot de passe (8 caractères)<span class="theStar">*</span> : </label>
+                                    <input type="password" name="mdp" required>
+                                </div>
+                                {% endif %}
+
+                                <div class="form-row">
+                                    <label>date<span class="theStar">*</span> : </label>
+                                    <input type="date" name="annee_obtention" value="{{ info.annee_obtention }}">
+                                </div>
+
+                            </div>
+
+                            <div class="form-section">
+                                <h3>classe : </h3>
+                                <div class="form-row">
+                                    <label for="specialty">Classe<span class="theStar">*</span> : </label>
+                                    <select name="num_classe">
+                                        {% for classe in classes %}
+                                        <option value="{{ classe.num_classe }}" {% if info.nom_classe==classe.nom_classe
+                                            %} selected {% endif %}>
+                                            {{ classe.nom_classe }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+
+
+                                </div>
+                            </div>
+
+                            <div class="note">
+                                Les champs comportant le symbole<span class="theStar">*</span> sont obligatoires
+                            </div>
+
+                            <div style="text-align: right;">
+                                <input type="submit" value="Modifier">
+                            </div>
+
+
+
+                        </form>
+
+
+
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 </body>

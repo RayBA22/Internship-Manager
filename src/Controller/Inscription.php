@@ -2,6 +2,7 @@
 session_start();
 
 require '../../config/routes.php';
+require '../Model/Interaction.php';
 
 
 if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
@@ -10,9 +11,21 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
     exit;
 } else {
 
+    $entreprise = null;
+    
+    if(isset($_GET['id']))
+        $entreprises = $_GET['id'];
+    else
+        $entreprises = info_entreprise();
 
 
+    $stagiaires = info_stagiaire();
 
-    echo $twig->render('Inscription.twig');
+    $professeurs = info_professeur();
+
+
+    $active = ["", "", "", "active", ""];
+
+    echo $twig->render('Inscription.twig', [ 'active' => $active, 'entreprises' => $entreprises, 'stagiaires' => $stagiaires, 'professeurs' => $professeurs]);
     exit;
 }

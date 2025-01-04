@@ -38,9 +38,14 @@
                                 Prenom : {{ info.prenom_etudiant }} <br>
                                 classe: {{ info.nom_classe }} <br>
                                 prof pricipal: {{ info.nom_professeur }} {{ info.prenom_professeur }} <br>
+                                {% if info.annee_obtention is not empty %}
+                                année d'obtention du BTS:  {{ info.annee_obtention }} <br>
+                                {% endif %}
+                                
                             </p>
                         </div>
                         <div class="bubble">
+                            {% if info.annee_obtention is not empty %}
                             <h4>Stages : </h4>
                             {% for stage in stages %}
                             <p>
@@ -57,6 +62,12 @@
                                 {% endif %}
                              </p>   
                                 {% endfor %}
+                                {% else %}
+                                    <br>
+                                <b>Pas de stages effectués </b>
+
+
+                                {% endif %}
                             
                         </div>
 

@@ -12,12 +12,14 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
 } else {
 
     $information = array();
+    $classes = info_nomClasses();    
     if (isset($_GET['id']))
-        $information = info_entreprise2($_GET['id']);
+        $information = info_stagiaire2($_GET['id']);
     
 
-    $active = ["", "active", "", "", ""];
+    $active = ["", "", "active", "", ""];
 
-    echo $twig->render('StagiaireEdit.twig', [ 'active'=> $active, 'info' => $information]);
+
+    echo $twig->render('StagiaireEdit.twig', [ 'active'=> $active, 'info' => $information, 'classes' => $classes]);
     exit;
 }

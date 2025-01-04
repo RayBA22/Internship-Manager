@@ -3,23 +3,7 @@
 require 'interaction.php';
 
 //j'ai enlev observation parce que y'a rien dedns
-function info_entreprise($partie_nom)
-{
 
-    $partie_nom = '%' . $partie_nom . '%';
-
-    $sql = "SELECT raison_sociale, nom_contact, nom_resp, rue_entreprise, cp_entreprise, ville_entreprise, tel_entreprise, fax_entreprise, email, 
-  site_entreprise, niveau, en_activite, libelle, num_entreprise FROM entreprise JOIN 
-  spec_entreprise using(num_entreprise) join specialite using(num_spec) ";
-    
-    $sql .= " WHERE raison_sociale LIKE :partie_nom";
-
-    $sql .= " ORDER BY raison_sociale;";
-
-
-    $result = executeRequete($sql, ['partie_nom' => $partie_nom]);
-    return $result;
-}
 
 function info_entreprise2($id)
 {
