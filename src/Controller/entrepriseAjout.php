@@ -2,7 +2,8 @@
 session_start();
 
 require '../../config/routes.php';
-require '../Model/interaction.php';
+require '../Model/EntrepriseModel.php';
+
 
 
 if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
@@ -14,7 +15,6 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
 
 
     if (
-        isset($_GET['id']) && !empty($_GET['id']) &&
         isset($_POST['raison_sociale']) && !empty($_POST['raison_sociale']) &&
         isset($_POST['rue_entreprise']) && !empty($_POST['rue_entreprise']) &&
         isset($_POST['cp_entreprise']) && !empty($_POST['cp_entreprise']) &&
@@ -26,7 +26,7 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
     ) {
 
 
-        $id = $_GET['id'];
+        
         $raison_sociale = htmlspecialchars($_POST['raison_sociale']);
         $nom_contact = htmlspecialchars($_POST['nom_contact']);
         $nom_resp = htmlspecialchars($_POST['nom_resp']);
@@ -45,8 +45,7 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
        
 
 
-        echo mettreAjour_entreprise(
-            $id,
+        ajouter_entreprise(
             $raison_sociale,
             $nom_contact,
             $nom_resp,
@@ -58,11 +57,11 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
             $email,
             $observations,
             $site,
-            $niveau,
-            $specialite
+            $niveau
+           
             
         );
-
+        
         header("Location: http://localhost//isi1_projetfinal/src/Controller/Entreprise.php");
         exit;
     }

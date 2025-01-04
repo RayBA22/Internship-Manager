@@ -2,7 +2,7 @@
 session_start();
 
 require '../../config/routes.php';
-require '../Model/interaction.php';
+require '../Model/EntrepriseModel.php';
 
 
 if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {

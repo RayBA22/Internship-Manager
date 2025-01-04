@@ -24,7 +24,7 @@
                 <div class="container-fluid">
 
                     <div class="form-container">
-                        <form action="{% if info.num_entreprise is not null %}../Controller/Edit.php?id={{ info.num_entreprise }}{% else %}../Controller/Ajout.php{% endif %}" method="post">
+                        <form action="{% if info.num_entreprise is not null %}../Controller/entrepriseEdit.php?id={{ info.num_entreprise }}{% else %}../Controller/entrepriseAjout.php{% endif %}" method="post">
                             <div class="form-section">
                                 <h3>Information</h3>
                                 <div class="form-row">

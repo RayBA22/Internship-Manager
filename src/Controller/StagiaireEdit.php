@@ -2,7 +2,7 @@
 session_start();
 
 require '../../config/routes.php';
-require '../Model/EntrepriseModel.php';
+require '../Model/StagiaireModel.php';
 
 
 if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
@@ -18,6 +18,6 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
 
     $active = ["", "active", "", "", ""];
 
-    echo $twig->render('EntrepriseEdit.twig', [ 'active'=> $active, 'info' => $information]);
+    echo $twig->render('StagiaireEdit.twig', [ 'active'=> $active, 'info' => $information]);
     exit;
 }
