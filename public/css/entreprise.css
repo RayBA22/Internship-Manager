@@ -97,7 +97,36 @@ a.btn img {
   }
   
 
+  /* Style the button */
+.company-search-button {
+    background-color: #007bff; /* Blue background */
+    color: white;             /* White text for text-only buttons */
+    border: none;             /* Remove border */
+    border-radius: 5px;       /* Rounded corners */
+    padding: 10px;            /* Add padding for better appearance */
+    cursor: pointer;          /* Pointer cursor on hover */
+    display: inline-flex;     /* Flex layout for image alignment */
+    align-items: center;      /* Center content vertically */
+    justify-content: center;  /* Center content horizontally */
+}
 
+/* Style the image inside the button */
+.company-search-button img.rechercher {
+    height: 20px;             /* Adjust image height */
+    width: auto;              /* Maintain aspect ratio */
+    filter: brightness(0) invert(1); /* Make the image white */
+    margin: 0;                /* Remove default spacing */
+}
+
+/* Hover effect for the button */
+.company-search-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Active (clicked) state for the button */
+.company-search-button:active {
+    background-color: #004085; /* Even darker blue when clicked */
+}
 
 
 

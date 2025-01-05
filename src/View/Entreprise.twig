@@ -26,13 +26,23 @@
                     <br>
                     <div class="button-container">
                         <div class="company-action">
-                            <form action="" method="GET" class="form-inline">
-                                <button type="submit" class="company-search-button">
-                                    <img src="../../public/icons/rechercher.png"   class="rechercher" />
-                                </button>
-                                <input type="text" name="mot" class="company-search-input" placeholder="Rechercher une entreprise" />
-                            </form>
+                            
+                            <button id="toggle-form-button" class="toggle-button">
+                                <img src="../../public/icons/rechercher.png" class="rechercher" />afficher
+                               
+                            </button>
+                            Rechercher une entreprise
+                           
+                            <div id="company-form-container" style="display: none;">
+                                <form action="" method="GET" class="form-inline">
+                                    <button type="submit" class="company-search-button">
+                                        <img src="../../public/icons/rechercher.png"  class="rechercher" />
+                                    </button>
+                                    <input type="text" name="mot" class="company-search-input" placeholder="Rechercher" />
+                                </form>
+                            </div>
                         </div>
+                        
                         
                         
                         <a href="../Controller/EntrepriseEdit.php" class="company-action">
@@ -123,5 +133,6 @@
 
 </body>
 <script src="../../public/js/entreprise.js"></script>
+<script src="../../public/js/filtre.js"></script>
 
 </html>
