@@ -31,14 +31,25 @@
                                 <img src="../../public/icons/rechercher.png" class="rechercher" />afficher
                                
                             </button>
-                            Rechercher une entreprise
+                            Rechercher une entreprise <pre> </pre>
                            
-                            <div id="company-form-container" style="display: none;">
+                            <div id="company-form-container" class="company-form-container"  style="display: none;">
+                                
                                 <form action="" method="GET" class="form-inline">
                                     <button type="submit" class="company-search-button">
                                         <img src="../../public/icons/rechercher.png"  class="rechercher" />
                                     </button>
-                                    <input type="text" name="mot" class="company-search-input" placeholder="Rechercher" />
+                                    <input type="text" name="mot" class="company-search-input" placeholder="Raison sociale" required />
+                                    <input type="text" name="adresse" class="company-search-input" placeholder="Adresse" required/>
+                                    <select name="spec" required>
+                                        <option value="" disabled selected>Specialité</option>
+                                        {% for spec in specialites %}
+                                        <option value="{{ spec.num_spec }}">
+                                            {{ spec.libelle }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                        
                                 </form>
                             </div>
                         </div>

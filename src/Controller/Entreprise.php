@@ -11,19 +11,22 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
     exit;
 } else {
 
-    if (isset($_GET['mot']))
-        $partie_nom = $_GET['mot'];
-    
-    else
-        $partie_nom = "";
+    if (isset($_GET['mot']) && isset($_GET['adresse']) && isset($_GET['spec']))
+        $information = info_entreprise($_GET['mot'], $_GET['adresse'], $_GET['spec']);
 
-    $information = info_entreprise($partie_nom);
+    else
+        $information = info_entreprise();
+
+
+
+    $specialites = info_sepcialite();
+
     $entetes = $entetes = array(
         "Opération",
         "Raison sociale",
         "Nom du responsable",
         "Adresse",
-        "libelle",
+        "spcialité",
         "Site web",
         "Email",
         "Teléphone et Fax",
@@ -32,8 +35,11 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
 
     );
 
+    
+
     $active = ["", "active", "", "", ""];
 
-    echo $twig->render('Entreprise.twig', [ 'active'=> $active, 'role' => $_SESSION["role"], 'information' => $information, 'entetes' => $entetes]);
+
+    echo $twig->render('Entreprise.twig', ['active' => $active, 'specialites' => $specialites, 'role' => $_SESSION["role"], 'information' => $information, 'entetes' => $entetes]);
     exit;
 }

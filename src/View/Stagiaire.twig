@@ -25,17 +25,67 @@
                 <div class="container-fluid">
                     <br>
                     <div class="button-container">
-                        <a href="path/to/view" class="company-action">
-                            <img src="../../public/icons/rechercher.png" alt="Rechercher" />
-                            <p>Rechercher un stagiaire existant</p>
-                        </a>
+                        <div class="company-action">
+
+                            <button id="toggle-form-button" class="toggle-button">
+                                <img src="../../public/icons/rechercher.png" class="rechercher" />afficher
+
+                            </button>
+                            Rechercher un stagiaire existant
+                            <pre> </pre>
+
+                            <div id="company-form-container" class="company-form-container" style="display: none;">
+
+                                <form action="" method="GET" class="form-inline">
+                                    <button type="submit" class="company-search-button">
+                                        <img src="../../public/icons/rechercher.png" class="rechercher" />
+                                    </button>
+
+                                    <select name="alphabet" required>
+                                        <option value="" disabled selected>alphabet</option>
+                                        {% for char in range('A', 'Z') %}
+                                        <option value="{{ char }}">{{ char }}</option>
+                                        {% endfor %}
+                                    </select>
+
+                                    <select name="classe" required>
+                                        <option value="" disabled selected>Classe</option>
+                                        {% for classe in classes %}
+                                        <option value="{{ classe.num_classe }}">
+                                            {{ classe.nom_classe }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+
+
+                                    <select name="prof" required>
+                                        <option value="" disabled selected>Professeur</option>
+                                        {% for prof in profs %}
+                                        <option value="{{ prof.num_prof }}">
+                                            {{ prof.nom_prof }} {{ prof.prenom_prof }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+
+                                    <select name="entreprise" required>
+                                        <option value="" disabled selected>Entreprise</option>
+                                        {% for entreprise in entreprises %}
+                                        <option value="{{ entreprise.num_entreprise }}">
+                                            {{ entreprise.raison_sociale }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+
+                                </form>
+                            </div>
+                        </div>
                         <a href="../Controller/StagiaireEdit.php" class="company-action">
                             <img src="../../public/icons/ajouter.png" alt="Ajouter" />
                             <p>Ajouter un étudiant</p>
                         </a>
 
 
-                        <br> 
+                        <br>
                     </div>
 
                     <hr>
@@ -44,7 +94,7 @@
 
 
 
-                    
+
 
                     <table id="dataTable">
                         <thead>
@@ -80,16 +130,16 @@
                                     </div>
                                 </td>
 
-                                <td> {{ info.nom_etudiant }}  {{ info.prenom_etudiant }}</td>
+                                <td> {{ info.nom_etudiant }} {{ info.prenom_etudiant }}</td>
                                 <td>{{ info.raison_sociale }}</td>
                                 <td>{{ info.nom_professeur }} {{ info.prenom_professeur }} </td>
-                                
+
 
 
 
                             </tr>
                             {% endfor %}
-                            <!-- More rows can be added here -->
+
                         </tbody>
                     </table>
                 </div>
@@ -98,6 +148,7 @@
     </div>
 
 
+    <script src="../../public/js/filtre.js"></script>
 
 </body>
 

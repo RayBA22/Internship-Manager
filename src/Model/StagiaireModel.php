@@ -57,15 +57,7 @@ WHERE
 
 
 
-function info_nomClasses()
-{
 
-    $sql = "SELECT  num_classe, nom_classe 
-    FROM classe;";
-
-    $result = executeRequete($sql);
-    return $result;
-}
 
 
 function mettreAjour_stagiaire($id, $nom, $prenom, $annee_obtention, $num_classe)

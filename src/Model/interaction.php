@@ -37,59 +37,103 @@ function connexion($login, $table)
     return null;
 }
 
-
-function info_entreprise($partie_nom="")
+function info_entreprise($partie_nom = "", $partie_adresse = "", $spec = null)
 {
-
     $partie_nom = '%' . $partie_nom . '%';
 
-    $sql = "SELECT raison_sociale, nom_contact, nom_resp, rue_entreprise, cp_entreprise, ville_entreprise, tel_entreprise, fax_entreprise, email, 
-  site_entreprise, niveau, en_activite, libelle, num_entreprise FROM entreprise JOIN 
-  spec_entreprise using(num_entreprise) join specialite using(num_spec) ";
-
-    $sql .= " WHERE raison_sociale LIKE :partie_nom";
 
 
-    $sql .= " ORDER BY raison_sociale ;";
+    $sql = "SELECT 
+                raison_sociale, nom_contact, nom_resp, rue_entreprise, cp_entreprise, 
+                ville_entreprise, tel_entreprise, fax_entreprise, email, 
+                site_entreprise, niveau, en_activite, libelle, num_entreprise 
+            FROM 
+                entreprise 
+            JOIN 
+                spec_entreprise USING(num_entreprise) 
+            JOIN 
+                specialite USING(num_spec)
+            WHERE 
+                raison_sociale LIKE '$partie_nom' ";
 
 
-    $result = executeRequete($sql, ['partie_nom' => $partie_nom]);
+    if ($partie_adresse != "")
+        $sql .=  "OR cp_entreprise LIKE '$partie_adresse' OR  
+                     ville_entreprise LIKE '$partie_adresse' OR  
+                     rue_entreprise LIKE '$partie_adresse' ";
+
+
+    if (!is_null($spec)) {
+        $sql .= " OR num_spec = '$spec' ";
+    }
+
+    $sql .= " ORDER BY raison_sociale;";
+
+
+    $result = executeRequete($sql);
+
     return $result;
 }
 
-
-
-function info_stagiaire($partie_nom="")
+function info_nomClasses()
 {
 
+    $sql = "SELECT  num_classe, nom_classe 
+    FROM classe;";
+
+    $result = executeRequete($sql);
+    return $result;
+}
+
+function info_stagiaire($partie_nom = "",  $num_classe = "", $num_prof = "", $num_entreprise = "")
+{
     $partie_nom = '%' . $partie_nom . '%';
 
     $sql = "SELECT 
-         e.num_etudiant AS num_etudiant,
-        e.nom_etudiant AS nom_etudiant,
-        e.prenom_etudiant AS prenom_etudiant,
-        en.raison_sociale AS raison_sociale,
+s.num_etudiant AS num_etudiant,
+       s.nom_etudiant AS nom_etudiant,
+        s.prenom_etudiant AS prenom_etudiant,
+        e.raison_sociale AS raison_sociale,
         p.nom_prof AS nom_professeur,
         p.prenom_prof AS prenom_professeur
-        FROM 
-            etudiant e
-        LEFT JOIN 
-            stage s ON e.num_etudiant = s.num_etudiant
-        LEFT JOIN 
-            entreprise en ON s.num_entreprise = en.num_entreprise
-        LEFT JOIN 
-            professeur p ON s.num_prof = p.num_prof";
+            FROM 
+                etudiant s
+            LEFT JOIN 
+                stage st ON s.num_etudiant = st.num_etudiant
+            LEFT JOIN 
+                entreprise e ON st.num_entreprise = e.num_entreprise
+            LEFT JOIN 
+                classe c ON s.num_classe = c.num_classe
+            LEFT JOIN 
+                professeur p ON st.num_prof = p.num_prof
+            WHERE 
+                s.nom_etudiant LIKE :partie_nom";
 
-    $sql .= " WHERE nom_etudiant LIKE :partie_nom";
+    $params = [
+        ':partie_nom' => $partie_nom,
+    ];
 
-    $sql .= " ORDER BY nom_etudiant;";
+    if (!empty($num_entreprise)) {
+        $sql .= " AND st.num_entreprise = :num_entreprise";
+        $params[':num_entreprise'] = $num_entreprise;
+    }
 
+    if (!empty($num_classe)) {
+        $sql .= " AND s.num_classe = :num_classe";
+        $params[':num_classe'] = $num_classe;
+    }
 
-    $result = executeRequete($sql, ['partie_nom' => $partie_nom]);
+    if (!empty($num_prof)) {
+        $sql .= " AND st.num_prof = :num_prof";
+        $params[':num_prof'] = $num_prof;
+    }
+
+    $sql .= " ORDER BY s.nom_etudiant, s.prenom_etudiant;";
+
+    $result = executeRequete($sql, $params);
+
     return $result;
 }
-
-
 
 function info_professeur()
 {
@@ -137,4 +181,16 @@ function ajouter_inscription(
 
 
     return executeRequete($sql, $param);
+}
+
+
+
+function info_sepcialite()
+{
+    $sql = "SELECT num_spec, libelle FROM specialite";
+
+
+    $result = executeRequete($sql);
+
+    return $result;
 }
