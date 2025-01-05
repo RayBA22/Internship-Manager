@@ -1,5 +1,9 @@
 <?php
 
+
+/* le dossier model contient toutes les fonctions permettant d'intéragir avec la base de donnée
+des requêtes de sélection, mise à jour et de suppression*/
+
 session_start();
 require '../../config/database.php';
 

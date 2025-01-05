@@ -1,7 +1,7 @@
 
 <?php
 
-/* Ces fonctions sont  utilisé dans le controller liée aux stagiaires */
+/* Ces fonctions sont  utilisées dans le controller liée aux stagiaires */
 
 require 'interaction.php';
 

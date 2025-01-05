@@ -1,5 +1,5 @@
 <?php
-/* Ces fonctions sont  utilisé dans le controller liée aux entreprises */
+/* Ces fonctions sont  utilisées dans le controller liée aux entreprises */
 
 
 
