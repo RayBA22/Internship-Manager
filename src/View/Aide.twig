@@ -4,53 +4,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aide - FAQ</title>
+    <link rel="stylesheet" href="aide.css">
+    <style>
+        body, .container-fluid, .Aide-text, .section, .faq-item {
+            text-align: left;
+        }
 
+        body {
+            margin: 0;
+            padding: 0;
+        }
 
-    <title>Document</title>
+        .faq-item h3 {
+            margin-left: 20px;
+            font-size: 1.2em;
+        }
+
+        .faq-item p {
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .Aide-text p {
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .faq-item img {
+            background-color: blue;
+            width: 25px;
+            height: 25px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        
+
+    </style>
 </head>
 
 <body>
-
-
     <div class="container-fluid">
         <div class="row">
-
             <div class="col-md-2 p-0" id="sidebar-wrapper">
                 {% include 'navbar.twig' %}
             </div>
 
-
             <div class="col-md-10 ml-auto" id="content">
                 <div class="container-fluid">
-                    <div></div>
                     <div class="Aide-text">
-                            <h1>Aide</h1>
+                        <h1>Aide</h1>
                         <p>Bienvenue sur la FAQ</p>
                         <hr>
-                        
-                        
 
+                        <table border="0" style="width:100%; table-layout:fixed;">
+                            <tr>
+                                <td>
+                                    <div class="section">
+                                        <h2>Gestion des Entreprises proposant un stage ou une alternance</h2>
+                                        <div class="faq-item">
+                                            <h3>Comment rechercher une entreprise ?</h3>
+                                            <p>
+                                                Si vous voulez rechercher une entreprise, vous devez aller sur la page " Entreprise ",
+                                                pour cliquer sur le bouton " Rechercher une entreprise ". Il vous est alors fourni trois
+                                                critères. Utilisez-les afin de pouvoir trouver les entreprises qui correspondent à vos choix.
+                                            </p>
+                                        </div>
+                                        <div class="faq-item">
+                                            <h3>Comment ajouter une entreprise ?</h3>
+                                            <p>
+                                                Pour ajouter une entreprise, rendez-vous sur la page " Entreprise ", où vous devez
+                                                cliquer sur le bouton " Ajouter une entreprise ". Vous devrez ensuite ajouter les
+                                                informations concernant l’entreprise. Toutes les informations ne sont pas obligatoires,
+                                                mais il est conseillé d’en fournir un maximum pour renseigner les futurs stagiaires sur
+                                                les entreprises référencées.
+                                            </p>
+                                        </div>
+                                        <div class="faq-item">
+                                            <h3>Comment afficher ou enlever une information concernant l'entreprise ?</h3>
+                                            <p>
+                                                En allant sur la page " Entreprise ", vous pouvez voir les entreprises déjà référencées.
+                                                Vous pouvez cependant les afficher grâce à la liste déroulante : choisissez l'information
+                                                que vous voulez afficher puis cliquez sur le bouton " Ajouter ". Si vous voulez enlever
+                                                une information, il vous suffit de cliquer sur le moins situé à l'entête de la colonne
+                                                représentant l'information concernée.
+                                            </p>
+                                        </div>
+                                        <div class="faq-item">
+                                            <h3>N'y a-t-il pas une autre solution pour voir ces informations ?</h3>
+                                            <p>
+                                                Bien sûr, vous pouvez cliquer sur <img src="../../public/icons/voir.png" alt="Voir" /> pour voir toutes les informations concernant
+                                                l'entreprise que vous avez sélectionnée.
+                                            </p>
+                                        </div>
+                                        <div class="faq-item">
+                                            <h3>Comment puis-je supprimer une entreprise ?</h3>
+                                            <p>
+                                                Rien de plus simple, il vous suffit de cliquer sur l'icône <img src="../../public/icons/supprimer.png" alt="Supprimer" /> qui se situe sur la deuxième colonne "
+                                                Opération ". Faites bien attention de ne pas vous tromper de ligne !
+                                            </p>
+                                        </div>
+                                        <div class="faq-item">
+                                            <h3>Et si je veux modifier une information fausse ?</h3>
+                                            <p>
+                                                Cliquez sur l’icône <img src="../../public/icons/modifier.png" alt="Modifier" /> , puis changez le(s) information(s) que vous voulez. Vous pourrez
+                                                par la même occasion renseigner une information manquante si vous en avez la possibilité.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
 
-
-
-
-
-
-                        {% for a in aide %}
-                        <li>{{ a }}</li>
-                        {% endfor %}
-
-
+                        <table border="0" style="width:100%; table-layout:fixed;">
+                            <tr>
+                                <td>
+                                    <div class="section">
+                                        <h2>Gestion des Étudiants (Stagiaires)</h2>
+                                        <div class="faq-item">
+                                            <h3>Comment rechercher un stagiaire ?</h3>
+                                            <p>
+                                                Tout d'abord, dirigez-vous sur la page " Stagiaire ". Cliquez ensuite sur le bouton
+                                                " Rechercher un stagiaire existant ". Vous aurez alors quatre listes déroulantes. Vous
+                                                pourrez alors choisir, pour chaque champ, l'information voulue.
+                                            </p>
+                                        </div>
+                                        <div class="faq-item">
+                                            <h3>Comment inscrire un étudiant à un stage ?</h3>
+                                            <p>
+                                                Pour cela, vous devez vous rendre sur la page " Inscription ". Ensuite, vous devrez
+                                                remplir un formulaire contenant diverses informations concernant le stage de
+                                                l’étudiant, comme par exemple l’entreprise ou encore le professeur qui s’occupera
+                                                du stage de l’étudiant. Vous pouvez aussi le faire à partir de la page " Entreprise " :
+                                                cliquez sur la poignée de main située sur la première colonne " Opération ", et le
+                                                formulaire d'inscription s'affichera avec le nom de l'entreprise pré-rentré.
+                                            </p>
+                                        </div>
+                                        <div class="faq-item">
+                                            <h3>Comment peut-on voir les informations des stagiaires ?</h3>
+                                            <p>
+                                                Sur la liste qui s'affiche sur la page " Stagiaire ", ou en cliquant sur l’icône <img src="../../public/icons/voir.png" alt="Voir" /> .
+                                            </p>
+                                        </div>
+                                        <div class="faq-item">
+                                            <h3>Comment peut-on supprimer un stagiaire ?</h3>
+                                            <p>
+                                                Comme pour une entreprise : cliquez sur l'icône <img src="../../public/icons/supprimer.png" alt="Supprimer" /> présente sur la page " Stagiaire ".
+                                            </p>
+                                        </div>
+                                        <div class="faq-item">
+                                            <h3>Et pour modifier le contenu d'un champ, pareil que pour les entreprises ?</h3>
+                                            <p>
+                                                Tout juste !
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
-    </div>
-
-
 </body>
 
 </html>

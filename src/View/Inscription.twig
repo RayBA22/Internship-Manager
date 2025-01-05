@@ -24,61 +24,102 @@
                 <div class="container-fluid">
 
                     <div class="form-container">
-                        <form action="../Controller/information.php" method="post">
+                        <form action="../Controller/inscription.php" method="post">
                             <div class="form-section">
-                                <h3>Information</h3>
+                                <h3>Inscription</h3>
+
+                                <div class="form-section">
+                                    <div class="form-row">
+                                        {% if nom_entreprise is null %}
+                                        <label for="specialty">Entreprise<span class="theStar">*</span> : </label>
+
+                                        <select name="num_entreprise">
+                                            {% for entreprise in entreprises %}
+                                            <option value="{{ entreprise.num_entreprise }}">
+                                                {{ entreprise.raison_sociale }}
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+
+                                        
+                                        {% else %}
+
+                                            <label for="specialty">Entreprise<span class="theStar">*</span> : </label>
+                                            <input type="hidden" name="num_entreprise" value="{{ entreprises }}" readonly>
+                                            <input type="text" value="{{ nom_entreprise }}" readonly>
+
+                                            
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="form-row"><label for="specialty">Stagiaire (étudiant)<span
+                                                class="theStar">*</span> :
+                                        </label>
+                                        <select name="num_stagiaire">
+                                            {% for stagiaire in stagiaires %}
+                                            <option value="{{ stagiaire.num_etudiant }}">
+                                                {{ stagiaire.nom_etudiant }} {{ stagiaire.prenom_etudiant }}
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+
+
+
+                                    <div class="form-row"><label for="specialty">Professeur en charge<span
+                                                class="theStar">*</span> :
+                                        </label>
+                                        <select name="num_prof">
+                                            {% for prof in professeurs %}
+                                            <option value="{{ prof.num_prof}}">
+                                                {{ prof.nom_prof }} {{ prof.prenom_prof }}
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+
 
                                 <div class="form-row">
-                                    <label>Nom<span class="theStar">*</span> : </label>
-                                    <input type="text" name="nom_etudiant" value="{{ info.nom_etudiant }}" required>
+                                    <label>Début : </label>
+                                    <input type="date" name="debut_stage" required>
                                 </div>
                                 <div class="form-row">
-                                    <label>Prenom<span class="theStar">*</span> : </label>
-                                    <input type="text" name="prenom_etudiant" value="{{ info.prenom_etudiant }}"
-                                        required>
+                                    <label>Fin : </label>
+                                    <input type="date" name="fin_stage"  required>
                                 </div>
-                                {% if info.num_etudiant is null %}
+
+
+
                                 <div class="form-row">
-                                    <label>Nom d'utilisateur (8 caractères)<span class="theStar">*</span> : </label>
-                                    <input type="text" name="login" required>
+                                    <label>type : </label>
+                                    <input type="text" name="type_stage" required>
+                                </div>
+
+
+                                <div class="form-row">
+                                    <label>description du projet réalisé : </label>
+                                    <input type="text" name="desc_stage">
                                 </div>
 
                                 <div class="form-row">
-                                    <label>Mot de passe (8 caractères)<span class="theStar">*</span> : </label>
-                                    <input type="password" name="mdp" required>
+                                    <label>observation : </label>
+                                    <input type="text" name="observation_stage">
                                 </div>
-                                {% endif %}
 
-                                <div class="form-row">
-                                    <label>date<span class="theStar">*</span> : </label>
-                                    <input type="date" name="annee_obtention" value="{{ info.annee_obtention }}">
-                                </div>
+
 
                             </div>
 
-                            <div class="form-section">
-                                <h3>classe : </h3>
-                                <div class="form-row">
-                                    <label for="specialty">Classe<span class="theStar">*</span> : </label>
-                                    <select name="num_classe">
-                                        {% for classe in classes %}
-                                        <option value="{{ classe.num_classe }}" {% if info.nom_classe==classe.nom_classe
-                                            %} selected {% endif %}>
-                                            {{ classe.nom_classe }}
-                                        </option>
-                                        {% endfor %}
-                                    </select>
 
-
-                                </div>
-                            </div>
 
                             <div class="note">
                                 Les champs comportant le symbole<span class="theStar">*</span> sont obligatoires
                             </div>
 
                             <div style="text-align: right;">
-                                <input type="submit" value="Modifier">
+                                <input type="submit" value="Ajouter le Stage">
                             </div>
 
 

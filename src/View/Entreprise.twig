@@ -51,7 +51,7 @@
 
                     <div class="controls">
                         <select id="columnSelector">
-                            <!-- Options will be populated dynamically -->
+
                         </select>
                         <button onclick="addColumn()">Ajouter</button>
                     </div>
@@ -73,7 +73,7 @@
                                         <a href="../Controller/EntrepriseInfo.php?id={{ info.num_entreprise }}" class="btn">
                                             <img src="../../public/icons/voir.png" />
                                         </a>
-                                        <a href="../Controller/Inscription.php?id={{ info.num_entreprise }}" class="btn">
+                                        <a href="../Controller/Inscription.php?id={{ info.num_entreprise }}&nom={{ info.raison_sociale }}" class="btn">
                                             <img src="../../public/icons/inscrire.png" />
                                         </a>
                                         {% if role == 1 %}
