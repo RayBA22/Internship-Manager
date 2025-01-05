@@ -1,4 +1,8 @@
 <?php
+
+
+/*Modifie les informations d'un stagiaire */
+
 session_start();
 
 require '../../config/routes.php';

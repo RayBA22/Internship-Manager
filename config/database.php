@@ -1,4 +1,13 @@
 <?php
+
+/*
+   ce fichier permet de se connecter à une base de données MySQL locale avec des paramètres 
+   spécifiés et une gestion des erreurs via les exceptions de PDO.
+
+*/
+
+
+
 $host = '127.0.0.1'; 
 $db = 'bdd_geststages';     
 $user = 'root';       

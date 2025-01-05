@@ -1,6 +1,12 @@
 
 <?php
+
+/* ajoute une inscription a un stage à partir des 
+information revoyée par le formulaire inscription.twig
+envoie vers la page stagiaire*/
+
 session_start();
+
 
 require '../../config/routes.php';
 require '../Model/interaction.php';

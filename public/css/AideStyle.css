@@ -1,3 +1,6 @@
+
+/* css uniquement pour la page d'aide */
+
 body, .container-fluid, .Aide-text, .section, .faq-item {
     text-align: left;
 }
@@ -36,3 +39,8 @@ body {
     vertical-align: middle;
 }
 
+
+
+.company-search-button:active {
+    background-color: #004085; 
+}

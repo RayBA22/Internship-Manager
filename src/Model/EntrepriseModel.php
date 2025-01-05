@@ -1,8 +1,11 @@
 <?php
+/* Ces fonctions sont  utilisé dans le controller liée aux entreprises */
+
+
 
 require 'interaction.php';
 
-//j'ai enlev observation parce que y'a rien dedns
+/* renvoie le information speciquement à l'entreprie au numéro $id */
 
 
 function info_entreprise2($id)
@@ -17,18 +20,15 @@ function info_entreprise2($id)
 
 
 
-
+/* met a jour la spécialité d'une entreprise */
 function mettreAjour_specialite($id, $specialite)
 {
-    // Step 1: Retrieve the num_spec for the given specialty (libelle)
     $sql = "SELECT num_spec FROM specialite WHERE libelle = :specialite";
     $result = executeRequete($sql, ['specialite' => $specialite]);
 
-    // If the specialty exists, get the num_spec
     if ($result) {
         $num_spec = $result[0]['num_spec'];
 
-        // Step 2: Update the spec_entreprise table with the new num_spec for the given num_entreprise
         $updateSql = "UPDATE spec_entreprise 
                       SET num_spec = :num_spec 
                       WHERE num_entreprise = :id";
@@ -37,12 +37,11 @@ function mettreAjour_specialite($id, $specialite)
         return $updateResult ? "Specialty updated successfully!" : "Failed to update specialty.";
     }
 
-    // If the specialty doesn't exist, return an error
     return "Specialty not found!";
 }
 
 
-
+/* met a jour les informations concernant une entreprise */
 function mettreAjour_entreprise($id,
     $raison_sociale, $nom_contact, $nom_resp, $rue_entreprise, $cp_entreprise, 
     $ville_entreprise, $tel_entreprise, $fax_entreprise, $email, 
@@ -123,13 +122,13 @@ function ajouter_entreprise(
         :observation, :site, :niveau
     )";
 
-    // Prepare and execute query with bound parameters
+    
     $params = [
         ':raison_sociale' => $raison_sociale,
         ':nom_contact' => $nom_contact,
         ':nom_resp' => $nom_resp,
         ':rue_entreprise' => $rue_entreprise,
-        ':cp_entreprise' => $cp_entreprise, // Either an integer or NULL
+        ':cp_entreprise' => $cp_entreprise, 
         ':ville_entreprise' => $ville_entreprise,
         ':tel_entreprise' => $tel_entreprise,
         ':fax_entreprise' => $fax_entreprise,
@@ -142,7 +141,6 @@ function ajouter_entreprise(
 
     
 
-    // Execute the insertion and retrieve the last inserted ID
     return executeRequete($sql, $params);
 
 

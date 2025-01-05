@@ -1,4 +1,7 @@
 <?php
+
+/* affiche le formulaire d'edition des infos ou de création d'un stagiaire 
+(selon les paramétres dans l'url)*/
 session_start();
 
 require '../../config/routes.php';

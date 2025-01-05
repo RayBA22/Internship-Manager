@@ -1,4 +1,7 @@
 <?php
+
+/* Ajoute un stagiaire à partir du formulaire StagiaireEdit.twig*/
+
 session_start();
 
 require '../../config/routes.php';

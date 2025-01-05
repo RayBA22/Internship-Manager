@@ -1,4 +1,7 @@
 <?php
+
+/* affiche la liste des stagiaires */
+
 session_start();
 
 require '../../config/routes.php';
@@ -26,10 +29,6 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
 
     else
         $information = info_stagiaire();
-
-
-
-
 
 
 

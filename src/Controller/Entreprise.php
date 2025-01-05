@@ -1,4 +1,8 @@
 <?php
+
+/* Permet d'afficher le la liste des entreprises en utilisant les fonctions dans le model*/
+
+
 session_start();
 
 require '../../config/routes.php';

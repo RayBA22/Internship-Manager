@@ -1,4 +1,7 @@
 <?php
+
+/* Affiche le formulaire d'ajout ou de modification d'une entreprise 
+(selon les paramétres passées dans*/
 session_start();
 
 require '../../config/routes.php';

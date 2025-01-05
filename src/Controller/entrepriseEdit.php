@@ -1,4 +1,9 @@
 <?php
+
+/* modifie les information d'une entreprise à partir des informations du formulaire
+redirige vers la page d'entreprise*/
+
+
 session_start();
 
 require '../../config/routes.php';

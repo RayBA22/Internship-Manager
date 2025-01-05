@@ -1,4 +1,9 @@
 <?php
+
+
+/* Permet d'ajouter une entreprise à partir des informations du formulaire
+redirige vers la page d'entreprise après l'opération */
+
 session_start();
 
 require '../../config/routes.php';

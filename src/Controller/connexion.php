@@ -1,6 +1,6 @@
 <?php
 
-
+/* verifie si les informations de connexions sont correctes*/
 
 session_start(); 
 
@@ -20,7 +20,10 @@ function verifyConnexion(){
 }
 
 
-
+/* On utilise $_SESSION pour stocker deux informations: un boolean true 
+ l'utilisateur est connecté false sinon.
+ une autre pour savoir si c'est un prof ou unétudiant qui s'est connecté afin e personnalise l'affichage
+*/
 
 $_SESSION["connected"] = verifyConnexion();
 $_SESSION["role"] = ($_POST["role"] == "professeur");

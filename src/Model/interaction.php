@@ -3,7 +3,8 @@
 session_start();
 require '../../config/database.php';
 
-// Function to execute SQL queries
+/* exécute une requête sql passée en arrguments et 
+prend un tableau contenant les paramétres à bind dans la reqête */
 function executeRequete($sql, $params = [])
 {
     global $pdo;
@@ -21,6 +22,9 @@ function executeRequete($sql, $params = [])
 }
 
 
+/* Permet de renvoyer le mdp en passant un login et la table (etudiant ou professeur) 
+afin de vérifier s'il correspond à celui ecrit par l'utilisateur*/
+
 function connexion($login, $table)
 {
 
@@ -36,6 +40,9 @@ function connexion($login, $table)
 
     return null;
 }
+
+
+/* Envoie toute les entreprises qui verifient les conditions passées en arguements */
 
 function info_entreprise($partie_nom = "", $partie_adresse = "", $spec = null)
 {
@@ -58,12 +65,12 @@ function info_entreprise($partie_nom = "", $partie_adresse = "", $spec = null)
 
 
     if ($partie_adresse != "")
-        $sql .=  "OR cp_entreprise LIKE '$partie_adresse' OR  
+        $sql .=  "  OR  cp_entreprise LIKE '$partie_adresse' OR  
                      ville_entreprise LIKE '$partie_adresse' OR  
                      rue_entreprise LIKE '$partie_adresse' ";
 
 
-    if (!is_null($spec)) {
+    if ($spec != "" ) {
         $sql .= " OR num_spec = '$spec' ";
     }
 
@@ -75,6 +82,8 @@ function info_entreprise($partie_nom = "", $partie_adresse = "", $spec = null)
     return $result;
 }
 
+
+/*envoie toutes les classes dans la base de données  */
 function info_nomClasses()
 {
 
@@ -84,6 +93,8 @@ function info_nomClasses()
     $result = executeRequete($sql);
     return $result;
 }
+
+/* envoie tous les stagiaires qui verifient les conditions passées en arguments */
 
 function info_stagiaire($partie_nom = "",  $num_classe = "", $num_prof = "", $num_entreprise = "")
 {
@@ -134,7 +145,7 @@ s.num_etudiant AS num_etudiant,
 
     return $result;
 }
-
+/* renvoie tous les professeur (nom, prenom et numéro ) */
 function info_professeur()
 {
 
@@ -147,7 +158,7 @@ function info_professeur()
     return $result;
 }
 
-
+/* permet d'ajouter un stage avec lesinfos passés en arguments */
 function ajouter_inscription(
     $debut_stage,
     $fin_stage,
@@ -183,7 +194,7 @@ function ajouter_inscription(
     return executeRequete($sql, $param);
 }
 
-
+/*  renvoie toutes les spécialités dans la base*/
 
 function info_sepcialite()
 {

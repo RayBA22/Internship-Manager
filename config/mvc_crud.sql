@@ -1,3 +1,5 @@
+
+-- la base de donée fournie n'a pas changé
 -- phpMyAdmin SQL Dump
 -- version 4.6.4
 -- https://www.phpmyadmin.net/

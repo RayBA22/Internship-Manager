@@ -1,4 +1,7 @@
 <?php
+
+/* Affiche le fomulaire d'ajout d'inscription à un stage*/
+
 session_start();
 
 require '../../config/routes.php';

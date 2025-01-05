@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../public/css/styles.css" />
+    <link rel="stylesheet" href="../../public/css/connexion.css">
 
     <title>Document</title>
 </head>
@@ -23,14 +23,23 @@
             <div class="col-md-10 ml-auto" id="content">
                 <div class="container-fluid">
 
+                    <div class="container">
+                        <header>
+                          <h1>Gestion des stages</h1>
+                        </header>
+                        <main>
+                          <p>Vous n'êtes pas connecté.<br>Identifiez-vous pour poursuivre la navigation.</p>
+                        </main>
+                      </div>
+
                     <form method="POST" action="http://localhost//isi1_projetfinal/src/Controller/connexion.php">
                         <h2>Login</h2>
 
 
-                        <label for="login">Identifiant (Login)</label><br>
+                        <label for="login">Login : </label><br>
                         <input type="text" id="login" name="login" required><br><br>
 
-                        <label for="password">Mot de passe</label><br>
+                        <label for="password">Mot de passe :</label><br>
                         <input type="password" id="mdp" name="mdp" required><br><br>
 
                         <label for="role">Vous êtes :</label><br>

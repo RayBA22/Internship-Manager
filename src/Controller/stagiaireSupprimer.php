@@ -1,4 +1,6 @@
 <?php
+
+/* Supprime un stagiaire et envoie vers la liste des stagiaires */
 session_start();
 
 require '../../config/routes.php';

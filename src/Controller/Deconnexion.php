@@ -1,5 +1,8 @@
 <?php
 
+/* Permet de déconnecter un utilisateur en  appuyant sur deconnexion sur la barre*/
+
+
 session_start();
 $_SESSION["connected"] = false;
 session_destroy();

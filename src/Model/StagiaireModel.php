@@ -1,5 +1,8 @@
 
 <?php
+
+/* Ces fonctions sont  utilisé dans le controller liée aux stagiaires */
+
 require 'interaction.php';
 
 
@@ -113,14 +116,18 @@ function ajouter_stagiaire($nom, $prenom, $login, $mdp, $annee_obtention, $num_c
 }
 
 
-function supprimer_stagiaire($id){
-
-
+function supprimer_stagiaire($id) {
+    
+    $sql = "DELETE FROM mission WHERE num_stage IN (SELECT num_stage FROM stage WHERE num_etudiant = $id);";
+    executeRequete($sql);
     $sql = "DELETE FROM stage WHERE num_etudiant = $id;";
     executeRequete($sql);
-    $sql =   "DELETE FROM prof_classe WHERE num_classe IN (SELECT num_classe FROM etudiant WHERE num_etudiant = $id);";
+
+    $sql = "DELETE FROM prof_classe WHERE num_classe IN (SELECT num_classe FROM etudiant WHERE num_etudiant = $id);";
     executeRequete($sql);
-    $sql  =  "DELETE FROM etudiant WHERE num_etudiant = $id;";
+
+    $sql = "DELETE FROM etudiant WHERE num_etudiant = $id;";
     $result = executeRequete($sql);
+
     return $result;
 }

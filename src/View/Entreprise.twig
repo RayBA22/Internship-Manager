@@ -39,10 +39,11 @@
                                     <button type="submit" class="company-search-button">
                                         <img src="../../public/icons/rechercher.png"  class="rechercher" />
                                     </button>
-                                    <input type="text" name="mot" class="company-search-input" placeholder="Raison sociale" required />
-                                    <input type="text" name="adresse" class="company-search-input" placeholder="Adresse" required/>
+                                    <input type="text" name="mot" class="company-search-input" placeholder="Raison sociale" required  />
+                                    <input type="text" name="adresse" class="company-search-input" placeholder="Adresse" required />
                                     <select name="spec" required>
                                         <option value="" disabled selected>Specialité</option>
+                                        <option value="" >TOUTES</option>
                                         {% for spec in specialites %}
                                         <option value="{{ spec.num_spec }}">
                                             {{ spec.libelle }}

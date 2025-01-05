@@ -1,4 +1,8 @@
 <?php
+
+/* Affiche la page d'information d'une  entreprise en cliquant sur l'icone de l'oeil 
+*/
+
 session_start();
 
 require '../../config/routes.php';

@@ -1,4 +1,8 @@
 <?php
+
+/* Affiche la page d'aide si l'utilisateur est connecté */
+
+
 session_start();
 
 require '../../config/routes.php';

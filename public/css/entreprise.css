@@ -1,3 +1,7 @@
+/* css inclus dans tous les .twig  du site sauf Accueil, connexion, Aide, navbar .twig*/
+
+
+
 
 #dataTable {
     border-collapse: collapse;
@@ -11,55 +15,55 @@
 }
 a.btn {
     display: inline-block;
-    padding: 3px;  /* Reduced padding */
+    padding: 3px;  
     background-color: blue;  
-    width: 25px;   /* Smaller width */
-    height: 25px;  /* Smaller height */
+    width: 25px;   
+    height: 25px;  
     text-align: center;
-    margin-right: 8px;  /* Slightly reduced margin */
-    border-radius: 5px;  /* Optional: Rounded corners */
+    margin-right: 8px;  
+    border-radius: 5px;  
 }
 
 a.btn img {
-    width: 18px;  /* Smaller image size */
-    height: 18px; /* Smaller image size */
+    width: 18px;  
+    height: 18px;
     display: block;
     margin: 0 auto;
 }
 
 .button-container {
     display: flex;
-    gap: 20px;             /* Space between buttons */
-    align-items: center;   /* Vertically align buttons */
+    gap: 20px;            
+    align-items: center;   
 }
 
 .company-action {
     display: flex;
-    align-items: center;   /* Align logo and text vertically */
-    text-decoration: none; /* Remove underline */
-    background-color: blue; /* Blue background */
-    color: white;          /* White text */
-    padding: 5px 10px;     /* Smaller padding */
-    border-radius: 5px;    /* Slightly rounded corners */
+    align-items: center;   
+    text-decoration: none; 
+    background-color: blue; 
+    color: white;         
+    padding: 5px 10px;     
+    border-radius: 5px;    
     transition: background-color 0.2s;
-    font-size: 14px;       /* Smaller font size */
+    font-size: 14px;       
 }
 
 .company-action:hover {
-    background-color: blue; /* Darker blue on hover */
+    background-color: blue; 
 }
 
 .company-action img {   
     
     
-    max-width: 20px;       /* Smaller logo size */
-    margin-right: 8px;     /* Space between logo and text */
+    max-width: 20px;       
+    margin-right: 8px;    
 }
 
 .company-action p {
-    margin: 0;             /* Remove default margin */
-    font-weight: bold;     /* Bold text */
-    white-space: nowrap;   /* Prevent text from wrapping */
+    margin: 0;             
+    font-weight: bold;    
+    white-space: nowrap;   
 }
 
 
@@ -97,35 +101,35 @@ a.btn img {
   }
   
 
-  /* Style the button */
+  
 .company-search-button {
-    background-color: #007bff; /* Blue background */
-    color: white;             /* White text for text-only buttons */
-    border: none;             /* Remove border */
-    border-radius: 5px;       /* Rounded corners */
-    padding: 10px;            /* Add padding for better appearance */
-    cursor: pointer;          /* Pointer cursor on hover */
-    display: inline-flex;     /* Flex layout for image alignment */
-    align-items: center;      /* Center content vertically */
-    justify-content: center;  /* Center content horizontally */
+    background-color: #007bff; 
+    color: white;             
+    border: none;             
+    border-radius: 5px;       
+    padding: 10px;           
+    cursor: pointer;          
+    display: inline-flex;     
+    align-items: center;      
+    justify-content: center;  
 }
 
-/* Style the image inside the button */
+
 .company-search-button img.rechercher {
-    height: 20px;             /* Adjust image height */
-    width: auto;              /* Maintain aspect ratio */
-    filter: brightness(0) invert(1); /* Make the image white */
-    margin: 0;                /* Remove default spacing */
+    height: 20px;            
+    width: auto;              
+    filter: brightness(0) invert(1); 
+    margin: 0;               
 }
 
-/* Hover effect for the button */
+
 .company-search-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; 
 }
 
-/* Active (clicked) state for the button */
+
 .company-search-button:active {
-    background-color: #004085; /* Even darker blue when clicked */
+    background-color: #004085; 
 }
 
 

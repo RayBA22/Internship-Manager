@@ -1,4 +1,7 @@
 <?php
+
+/* Supprime une entreprise en cliquant sur le x et redirige vers la page d'entreprise*/
+
 session_start();
 
 require '../../config/routes.php';

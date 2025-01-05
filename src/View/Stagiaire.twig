@@ -43,6 +43,7 @@
 
                                     <select name="alphabet" required>
                                         <option value="" disabled selected>alphabet</option>
+                                        <option value="">Toutes les lettres</option> 
                                         {% for char in range('A', 'Z') %}
                                         <option value="{{ char }}">{{ char }}</option>
                                         {% endfor %}

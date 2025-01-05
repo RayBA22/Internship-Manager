@@ -1,7 +1,11 @@
+
+/* css de la barre de navigation dans navbar.twig et de la page d'accueil*/
+
+
+
 * {
     font-family: 'Courier New';
 }
-
 
 .navBar {
     height: 100vh;
@@ -13,12 +17,10 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    /* Stack items vertically */
 }
 
 .navBar.collapsed {
     width: 80px;
-    /* Sidebar partially visible (only icons) */
 }
 
 .navBar a {
@@ -33,7 +35,6 @@
 .navBar.collapsed a {
     justify-content: center;
     padding: 0.75rem;
-    /* Center icons when collapsed */
 }
 
 .navBar a:hover,
@@ -51,7 +52,6 @@
 
 .navBar.collapsed img {
     margin-right: 0;
-    /* Hide spacing when collapsed */
 }
 
 .collapse-btn {
@@ -61,35 +61,27 @@
 
 .collapse-btn.active {
     background-color: #007bff;
-    /* Highlight the active button */
 }
 
-/* Ensure buttons are stacked vertically */
 .collapse-btns {
     margin-top: auto;
-    /* Push the buttons to the bottom */
 }
 
 .collapse-btns a {
     display: block;
-    /* Make each button block-level to stack them vertically */
     padding: 0.75rem 1rem;
 }
 
 .navBar.collapsed .text {
     display: none;
-    /* Hide the text when the sidebar is collapsed */
 }
-
 
 .Acc-text {
     color: darkblue;
     text-align: center;
 }
 
-.Aide-text{
+.Aide-text {
     color: darkblue;
     text-align: end;
 }
-
-
